@@ -68,8 +68,28 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    private let workoutTodayLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Workout today"
+        label.textColor = #colorLiteral(red: 0.761189878, green: 0.7422975898, blue: 0.6815395951, alpha: 1)
+        label.font = .robotoMedium14()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let tableView: UITableView = {
+       let tableView = UITableView()
+        tableView.backgroundColor = .none
+        tableView.separatorStyle = .none
+        tableView.bounces = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
+    private let idWorkoutTableViewCell = "idWorkoutTableViewCell"
     
     override func viewDidLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.height / 2
@@ -79,6 +99,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setConstraints()
+        setDelegate()
+        tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkoutTableViewCell)
+    }
+    
+    private func setDelegate() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func setupViews() {
@@ -88,10 +115,33 @@ class MainViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
+        view.addSubview(workoutTodayLabel)
+        view.addSubview(tableView)
     }
    
     @objc private func addWorkoutButtonTapped() {
         print(#function)
+    }
+    
+}
+
+extension MainViewController: UITableViewDataSource {
+   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idWorkoutTableViewCell, for: indexPath) as! WorkoutTableViewCell
+        return cell
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
 }
@@ -136,5 +186,17 @@ extension MainViewController {
             
         ])
         
+        NSLayoutConstraint.activate([
+            workoutTodayLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 10),
+            workoutTodayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
+            
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
     }
 }

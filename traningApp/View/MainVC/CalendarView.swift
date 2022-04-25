@@ -24,7 +24,7 @@ class CalendarView: UIView {
         
         setupView()
         setConstraints()
-        setDelagates()
+        setDelagate()
         collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: idCalendarCell)
     }
     
@@ -40,7 +40,7 @@ class CalendarView: UIView {
         addSubview(collectionView)
     }
     
-    private func setDelagates() {
+    private func setDelagate() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
