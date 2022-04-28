@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88681D55281980F400D83953 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D54281980F400D83953 /* NewWorkoutViewController.swift */; };
+		88681D59281A9F7900D83953 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D58281A9F7900D83953 /* MainTabBarController.swift */; };
+		88681D5B281AA08D00D83953 /* UILabel  + Extansions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D5A281AA08D00D83953 /* UILabel  + Extansions.swift */; };
 		889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4AE92810759000220D42 /* AppDelegate.swift */; };
 		889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4AEB2810759000220D42 /* SceneDelegate.swift */; };
 		889F4AEE2810759000220D42 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4AED2810759000220D42 /* MainViewController.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88681D54281980F400D83953 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
+		88681D58281A9F7900D83953 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		88681D5A281AA08D00D83953 /* UILabel  + Extansions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel  + Extansions.swift"; sourceTree = "<group>"; };
 		889F4AE62810759000220D42 /* traningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889F4AE92810759000220D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		889F4AEB2810759000220D42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +109,9 @@
 		889F4AFF2811DD0600220D42 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				88681D58281A9F7900D83953 /* MainTabBarController.swift */,
 				889F4AED2810759000220D42 /* MainViewController.swift */,
+				88681D54281980F400D83953 /* NewWorkoutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 				889F4B062811E09600220D42 /* UIColor + Extensions.swift */,
 				889F4B082811E0CC00220D42 /* UIStackView + Extensions.swift */,
 				889F4B0A2811E0FC00220D42 /* UIView + Extensions.swift */,
+				88681D5A281AA08D00D83953 /* UILabel  + Extansions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -251,10 +260,13 @@
 				889F4B152816AE8400220D42 /* CalendarView.swift in Sources */,
 				889F4B092811E0CC00220D42 /* UIStackView + Extensions.swift in Sources */,
 				889F4B1D281722CA00220D42 /* WorkoutTableViewCell.swift in Sources */,
+				88681D5B281AA08D00D83953 /* UILabel  + Extansions.swift in Sources */,
 				889F4B072811E09600220D42 /* UIColor + Extensions.swift in Sources */,
 				889F4B1B2816D67B00220D42 /* WeatherView.swift in Sources */,
+				88681D59281A9F7900D83953 /* MainTabBarController.swift in Sources */,
 				889F4AEE2810759000220D42 /* MainViewController.swift in Sources */,
 				889F4B182816C68500220D42 /* CalendarCollectionViewCell.swift in Sources */,
+				88681D55281980F400D83953 /* NewWorkoutViewController.swift in Sources */,
 				889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */,
 				889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */,
 			);

@@ -36,6 +36,7 @@ class WeatherView: UIView {
           let image = UIImageView()
           image.backgroundColor = .white
           image.image = UIImage(named:"sunny")
+        image.contentMode = .scaleAspectFit
           image.layer.cornerRadius = 3
           image.translatesAutoresizingMaskIntoConstraints = false
           return image
@@ -84,7 +85,7 @@ extension WeatherView {
         ])
         
         NSLayoutConstraint.activate([
-            weatherImage.topAnchor.constraint(equalTo: topAnchor,constant: 7),
+            weatherImage.topAnchor.constraint(equalTo: topAnchor,constant: 10),
             weatherImage.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -10),
             weatherImage.heightAnchor.constraint(equalToConstant: 62),
             weatherImage.widthAnchor.constraint(equalToConstant: 62)

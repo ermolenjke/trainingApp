@@ -67,6 +67,16 @@ class WorkoutTableViewCell: UITableViewCell {
         return view
     }()
     
+    private let exerciseBackgroundView: UIView = {
+       let view = UIView()
+        view.layer.cornerRadius = 20
+        view.backgroundColor = .specialBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var labelStackView = UIStackView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -83,11 +93,16 @@ class WorkoutTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         addSubview(backgroundCell)
+        addSubview(exerciseBackgroundView)
         addSubview(exerciseImageView)
-        addSubview(startButton)
+        contentView.addSubview(startButton)
         addSubview(exerciseLabel)
-        addSubview(repsLabel)
-        addSubview(setsLabel)
+//        addSubview(repsLabel)
+//        addSubview(setsLabel)
+        
+        labelStackView = UIStackView(arrangedSubviews: [repsLabel,setsLabel], axis: .horizontal, spacing: 10)
+        
+        addSubview(labelStackView)
         
     }
     
@@ -104,39 +119,53 @@ class WorkoutTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            exerciseImageView.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
-            exerciseImageView.leadingAnchor.constraint(equalTo: backgroundCell.leadingAnchor,constant: 8),
-            exerciseImageView.heightAnchor.constraint(equalToConstant: 75),
-            exerciseImageView.widthAnchor.constraint(equalToConstant: 75)
+            exerciseBackgroundView.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
+            exerciseBackgroundView.leadingAnchor.constraint(equalTo: backgroundCell.leadingAnchor,constant: 8),
+            exerciseBackgroundView.heightAnchor.constraint(equalToConstant: 75),
+            exerciseBackgroundView.widthAnchor.constraint(equalToConstant: 75)
+        ])
+        
+        NSLayoutConstraint.activate([
+            exerciseImageView.topAnchor.constraint(equalTo: exerciseBackgroundView.topAnchor,constant: 7),
+            exerciseImageView.leadingAnchor.constraint(equalTo: exerciseBackgroundView.leadingAnchor, constant: 10),
+            exerciseImageView.heightAnchor.constraint(equalToConstant: 63),
+            exerciseImageView.widthAnchor.constraint(equalToConstant: 55)
         ])
         
         NSLayoutConstraint.activate([
             startButton.bottomAnchor.constraint(equalTo: backgroundCell.bottomAnchor, constant: -10),
-            startButton.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10),
+            startButton.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
+            startButton.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor,constant: -10),
             startButton.heightAnchor.constraint(equalToConstant: 29),
-            startButton.widthAnchor.constraint(equalToConstant: 254)
         ])
         
         NSLayoutConstraint.activate([
             exerciseLabel.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
-            exerciseLabel.leadingAnchor.constraint(equalTo: exerciseImageView.trailingAnchor, constant: 10),
+            exerciseLabel.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
             exerciseLabel.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -100),
             exerciseLabel.heightAnchor.constraint(equalToConstant: 26)
             
         ])
         
-        NSLayoutConstraint.activate([
-            repsLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -2),
-            repsLabel.leadingAnchor.constraint(equalTo: exerciseImageView.trailingAnchor, constant: 10),
-            repsLabel.heightAnchor.constraint(equalToConstant: 19),
-            repsLabel.heightAnchor.constraint(equalToConstant: 65)
-        ])
+//        NSLayoutConstraint.activate([
+//            repsLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -2),
+//            repsLabel.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
+//            repsLabel.heightAnchor.constraint(equalToConstant: 19),
+//            repsLabel.heightAnchor.constraint(equalToConstant: 65)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//            setsLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -2),
+//            setsLabel.leadingAnchor.constraint(equalTo: repsLabel.trailingAnchor, constant: 10),
+//            setsLabel.heightAnchor.constraint(equalToConstant: 19),
+//            setsLabel.heightAnchor.constraint(equalToConstant: 65)
+//
+//        ])
         
         NSLayoutConstraint.activate([
-            setsLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -2),
-            setsLabel.leadingAnchor.constraint(equalTo: repsLabel.trailingAnchor, constant: 10),
-            setsLabel.heightAnchor.constraint(equalToConstant: 19),
-            setsLabel.heightAnchor.constraint(equalToConstant: 65)
+            labelStackView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor, constant: 0),
+            labelStackView.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
+            labelStackView.heightAnchor.constraint(equalToConstant: 20)
             
         ])
         
