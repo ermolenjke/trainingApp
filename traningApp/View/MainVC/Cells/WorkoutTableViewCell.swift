@@ -50,7 +50,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let exerciseLabel: UILabel = {
+    private let workoutName: UILabel = {
         let label = UILabel()
         label.text = "Pull Ups"
         label.font = .robotoMedium24()
@@ -96,7 +96,7 @@ class WorkoutTableViewCell: UITableViewCell {
         addSubview(exerciseBackgroundView)
         addSubview(exerciseImageView)
         contentView.addSubview(startButton)
-        addSubview(exerciseLabel)
+        addSubview(workoutName)
 //        addSubview(repsLabel)
 //        addSubview(setsLabel)
         
@@ -108,6 +108,21 @@ class WorkoutTableViewCell: UITableViewCell {
     
     @objc private func startButtonTapped() {
         print(#function)
+    }
+    
+    
+    func cellConfigure(model: WorkoutModel) {
+        workoutName.text = model.workoutName
+        
+        let (min, sec) = { (secs: Int) -> (Int, Int) in
+            return (secs / 60, secs % 60)}(model.workoutTimer)
+        
+        repsLabel.text = (model.workoutTimer == 0 ? "Reps: \(model.workoutReps)" : "Timer: \(min) min \(sec) sec")
+        setsLabel.text = "Sets: \(model.workoutSets)"
+        
+        guard let imageData = model.workoutImage else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        exerciseImageView.image = image
     }
     
     private func setConstraints() {
@@ -140,10 +155,10 @@ class WorkoutTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            exerciseLabel.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
-            exerciseLabel.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
-            exerciseLabel.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -100),
-            exerciseLabel.heightAnchor.constraint(equalToConstant: 26)
+            workoutName.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 10),
+            workoutName.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
+            workoutName.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -100),
+            workoutName.heightAnchor.constraint(equalToConstant: 26)
             
         ])
         
@@ -163,7 +178,7 @@ class WorkoutTableViewCell: UITableViewCell {
 //        ])
         
         NSLayoutConstraint.activate([
-            labelStackView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor, constant: 0),
+            labelStackView.topAnchor.constraint(equalTo: workoutName.bottomAnchor, constant: 0),
             labelStackView.leadingAnchor.constraint(equalTo: exerciseBackgroundView.trailingAnchor, constant: 10),
             labelStackView.heightAnchor.constraint(equalToConstant: 20)
             
