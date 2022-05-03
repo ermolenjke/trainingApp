@@ -90,6 +90,7 @@ class DetailsView: UIView {
         super.init(frame: frame)
         layer.cornerRadius = 10
         backgroundColor = .specialBrown
+        translatesAutoresizingMaskIntoConstraints = false
         
         setupViews()
         setConstraints()
@@ -117,7 +118,7 @@ class DetailsView: UIView {
                                                        numberOfRepsLabel],
                                     axis: .horizontal,
                                     spacing: 10)
-        addSubview(setsStackView)
+        addSubview(repsStackView)
         addSubview(firstRectangleView)
         addSubview(secondRectangleView)
         addSubview(nextSetButton)
@@ -136,7 +137,8 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             setsStackView.topAnchor.constraint(equalTo: workoutNameLabel.bottomAnchor, constant: 20),
             setsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15)
+            setsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            setsStackView.heightAnchor.constraint(equalToConstant: 28)
         ])
         
         NSLayoutConstraint.activate([
@@ -149,7 +151,9 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             repsStackView.topAnchor.constraint(equalTo: firstRectangleView.bottomAnchor, constant: 25),
             repsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            repsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15)
+            repsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            repsStackView.heightAnchor.constraint(equalToConstant: 28)
+
         ])
         
         NSLayoutConstraint.activate([
