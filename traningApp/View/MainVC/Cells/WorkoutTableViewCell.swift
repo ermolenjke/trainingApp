@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol StartWorkoutProtocol: AnyObject {
+    
+    func startButtonTapped(model:WorkoutModel)
+    
+}
+
 class WorkoutTableViewCell: UITableViewCell {
     
     private let exerciseImageView: UIImageView = {
@@ -19,7 +25,7 @@ class WorkoutTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let startButton: UIButton = {
+    let startButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 10
         button.setTitle("START", for: .normal)
@@ -76,6 +82,8 @@ class WorkoutTableViewCell: UITableViewCell {
     }()
     
     var labelStackView = UIStackView()
+    var workoutModel = WorkoutModel()
+    weak var cellStartWorkoutDelegate: StartWorkoutProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -107,7 +115,9 @@ class WorkoutTableViewCell: UITableViewCell {
     }
     
     @objc private func startButtonTapped() {
-        print(#function)
+        
+        cellStartWorkoutDelegate?.startButtonTapped(model: workoutModel)
+        
     }
     
     

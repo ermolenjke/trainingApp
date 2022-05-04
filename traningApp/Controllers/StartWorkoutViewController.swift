@@ -69,6 +69,7 @@ class StartWorkoutViewController: UIViewController {
     }()
     
     private let detailsView = DetailsView()
+    var workoutModel = WorkoutModel()
     
     @objc private func closeVC() {
         dismiss(animated: true)
@@ -84,6 +85,7 @@ class StartWorkoutViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        print(workoutModel)
     }
     
     override func viewDidLayoutSubviews() {

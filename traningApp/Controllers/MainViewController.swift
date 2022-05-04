@@ -125,6 +125,7 @@ class MainViewController: UIViewController {
         setDelegate()
         getWorkouts(date: Date())
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkoutTableViewCell)
+    
     }
     
     private func setDelegate() {
@@ -144,6 +145,14 @@ class MainViewController: UIViewController {
         view.addSubview(noWorkoutImageView)
     }
    
+//    @objc private func startButtonTapped() {
+//
+//        let startWorkoutViewController = StartWorkoutViewController()
+//
+//        present(startWorkoutViewController, animated: true, completion: nil)
+//
+//    }
+    
     @objc private func addWorkoutButtonTapped() {
         let newWorkoutViewController = NewWorkoutViewController()
         
@@ -154,10 +163,16 @@ class MainViewController: UIViewController {
     private func getWorkouts(date: Date) {
         
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
+        let formatter = DateFormatter()
+        let components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
         guard let weekday = components.weekday else { return }
+        guard let day = components.day else { return }
+        guard let month = components.month else { return }
+        guard let year = components.year else { return }
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
         
-        let dateStart = date
+        guard let dateStart = formatter.date(from: "\(year)/\(month)/\(day) 00:00") else { return }
         let dateEnd: Date = {
             let components = DateComponents(day: 1, second: -1)
             return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
@@ -185,8 +200,33 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: idWorkoutTableViewCell, for: indexPath) as! WorkoutTableViewCell
         let model = workoutArray[indexPath.row]
         cell.cellConfigure(model: model)
+//        cell.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        cell.cellStartWorkoutDelegate = self
         return cell
     }
+}
+
+extension MainViewController: StartWorkoutProtocol {
+    
+    func startButtonTapped(model: WorkoutModel) {
+        
+        if model.workoutTimer == 0 {
+            let startWorkoutViewController = StartWorkoutViewController()
+            startWorkoutViewController.modalPresentationStyle = .fullScreen
+            startWorkoutViewController.workoutModel = model
+            present(startWorkoutViewController, animated: true, completion: nil)
+            
+        } else {
+            print("timer")
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
 }
 
 extension MainViewController: UITableViewDelegate {

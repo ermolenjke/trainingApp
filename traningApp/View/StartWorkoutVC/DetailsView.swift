@@ -13,6 +13,7 @@ class DetailsView: UIView {
        let label = UILabel()
         label.text = "Biceps"
         label.font = .robotoMedium24()
+        label.textAlignment = .center
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -82,6 +83,18 @@ class DetailsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let editWorkoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "editingImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setTitle("Editing", for: .normal)
+        button.tintColor = .specialLightBrown
+        button.titleLabel?.font = .robotoMedium16()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(editWorkoutButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
 
     var setsStackView = UIStackView()
     var repsStackView = UIStackView()
@@ -98,6 +111,11 @@ class DetailsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func editWorkoutButtonTapped() {
+        print(#function)
+        
     }
     
     @objc private func nextSet() {
@@ -122,6 +140,7 @@ class DetailsView: UIView {
         addSubview(firstRectangleView)
         addSubview(secondRectangleView)
         addSubview(nextSetButton)
+        addSubview(editWorkoutButton)
         
     }
     
@@ -129,8 +148,8 @@ class DetailsView: UIView {
         
         NSLayoutConstraint.activate([
             workoutNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 14),
-            workoutNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 133),
-            workoutNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -133),
+            workoutNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            workoutNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             workoutNameLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
         
@@ -168,6 +187,13 @@ class DetailsView: UIView {
             nextSetButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 19),
             nextSetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -19),
             nextSetButton.heightAnchor.constraint(equalToConstant: 43)
+        ])
+        
+        NSLayoutConstraint.activate([
+            editWorkoutButton.topAnchor.constraint(equalTo: secondRectangleView.bottomAnchor, constant: 10),
+            editWorkoutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            editWorkoutButton.heightAnchor.constraint(equalToConstant: 20),
+            editWorkoutButton.widthAnchor.constraint(equalToConstant: 80)
         ])
         
     }
