@@ -224,9 +224,6 @@ extension MainViewController: StartWorkoutProtocol {
         
     }
     
-    
-    
-    
 }
 
 extension MainViewController: UITableViewDelegate {
