@@ -122,6 +122,8 @@ class WorkoutTableViewCell: UITableViewCell {
     
     
     func cellConfigure(model: WorkoutModel) {
+        workoutModel = model
+
         workoutName.text = model.workoutName
         
         let (min, sec) = { (secs: Int) -> (Int, Int) in
