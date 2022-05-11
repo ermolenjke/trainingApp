@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */; };
 		88681D55281980F400D83953 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D54281980F400D83953 /* NewWorkoutViewController.swift */; };
 		88681D59281A9F7900D83953 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D58281A9F7900D83953 /* MainTabBarController.swift */; };
 		88681D5B281AA08D00D83953 /* UILabel  + Extansions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D5A281AA08D00D83953 /* UILabel  + Extansions.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
 		88681D54281980F400D83953 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		88681D58281A9F7900D83953 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		88681D5A281AA08D00D83953 /* UILabel  + Extansions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel  + Extansions.swift"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				888D2C61282026F600ADA410 /* SimpleAlert.swift */,
+				885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				888D2C5F28201B4300ADA410 /* RealmManager.swift in Sources */,
 				888D2C62282026F600ADA410 /* SimpleAlert.swift in Sources */,
 				889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */,
+				885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */,
 				889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

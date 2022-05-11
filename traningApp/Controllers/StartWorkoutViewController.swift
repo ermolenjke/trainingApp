@@ -63,21 +63,16 @@ class StartWorkoutViewController: UIViewController {
         button.titleLabel?.font = .robotoBold16()
         button.layer.cornerRadius = 10
         button.tintColor = .white
-        button.addTarget(self, action: #selector(finishTraining), for: .touchUpInside)
+        button.addTarget(self, action: #selector(finishButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private let detailsView = DetailsView()
     var workoutModel = WorkoutModel()
+    private var numberOfSet = 1
     
-    @objc private func closeVC() {
-        dismiss(animated: true)
-    }
     
-    @objc private func finishTraining() {
-        dismiss(animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +80,34 @@ class StartWorkoutViewController: UIViewController {
         
         setupViews()
         setConstraints()
-        print(workoutModel)
+        setWorkoutPrametrs()
+        setDelegates()
+    }
+    
+    private func setDelegates() {
+        detailsView.cellNextSetDelegate = self
+    }
+    
+    @objc private func closeVC() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func finishButtonTapped() {
+        if numberOfSet == workoutModel.workoutSets {
+            dismiss(animated: true)
+            RealmManager.shared.updateWorkoutModel(model: workoutModel, bool: true)
+        } else {
+            alertOkCancel(title: "Warning", message: "You haven't finished your workout") {
+                self.dismiss(animated: true)
+            }
+        }
+        
+    }
+    
+    private func setWorkoutPrametrs() {
+        detailsView.workoutNameLabel.text = workoutModel.workoutName
+        detailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(workoutModel.workoutSets)"
+        detailsView.numberOfRepsLabel.text = "\(workoutModel.workoutReps)"
     }
     
     override func viewDidLayoutSubviews() {
@@ -159,3 +181,19 @@ class StartWorkoutViewController: UIViewController {
     }
     
 }
+
+extension StartWorkoutViewController: NextSetProtocol {
+    
+    func nextSetTapped() {
+        
+        if numberOfSet < workoutModel.workoutSets {
+            numberOfSet += 1
+            detailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(workoutModel.workoutSets)"
+        } else {
+            alertOk(title: "Error", message: "Finish your workout")
+        }
+        
+    }
+    
+}
+

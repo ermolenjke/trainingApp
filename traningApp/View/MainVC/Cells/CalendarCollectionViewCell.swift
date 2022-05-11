@@ -9,7 +9,7 @@ import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
     
-    private let dayOfWeekLabel: UILabel = {
+    let dayOfWeekLabel: UILabel = {
        let label = UILabel()
         label.text = "We"
         label.font = .robotoBold16()
@@ -19,7 +19,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let numberOfDayLabel: UILabel = {
+    let numberOfDayLabel: UILabel = {
        let label = UILabel()
         label.text = "29"
         label.font = .robotoBold20()

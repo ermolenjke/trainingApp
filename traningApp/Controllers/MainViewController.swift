@@ -125,12 +125,13 @@ class MainViewController: UIViewController {
         setDelegate()
         getWorkouts(date: Date())
         tableView.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idWorkoutTableViewCell)
-    
+        
     }
     
     private func setDelegate() {
         tableView.delegate = self
         tableView.dataSource = self
+        calendarView.cellCollectionViewDelegate = self
     }
     
     private func setupViews() {
@@ -189,6 +190,14 @@ class MainViewController: UIViewController {
     
 }
 
+extension MainViewController: SelectCollectionViewProtocol {
+    func selectItem(date: Date) {
+        getWorkouts(date: date)
+    }
+    
+    
+}
+
 extension MainViewController: UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -220,8 +229,6 @@ extension MainViewController: StartWorkoutProtocol {
             print("timer")
         }
         
-        
-        
     }
     
 }
@@ -230,6 +237,20 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "") { _, _, _ in
+            let deleteModel = self.workoutArray[indexPath.row]
+            RealmManager.shared.deleteWorkoutModel(model: deleteModel)
+            tableView.reloadData()
+        }
+        
+        action.backgroundColor = .specialBackground
+        action.image = UIImage(named: "deleteImage")
+        
+        return UISwipeActionsConfiguration(actions: [action])
+        
     }
     
 }

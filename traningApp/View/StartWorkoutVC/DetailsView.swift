@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol NextSetProtocol: AnyObject {
+    func nextSetTapped()
+}
+
 class DetailsView: UIView {
     
-    private let workoutNameLabel: UILabel = {
+    let workoutNameLabel: UILabel = {
        let label = UILabel()
         label.text = "Biceps"
         label.font = .robotoMedium24()
@@ -28,7 +32,7 @@ class DetailsView: UIView {
         return label
     }()
     
-    private let numberOfSetsLabel: UILabel = {
+    let numberOfSetsLabel: UILabel = {
        let label = UILabel()
         label.text = "1/4"
         label.font = .robotoMedium24()
@@ -46,7 +50,7 @@ class DetailsView: UIView {
         return label
     }()
     
-    private let numberOfRepsLabel: UILabel = {
+    let numberOfRepsLabel: UILabel = {
        let label = UILabel()
         label.text = "20"
         label.font = .robotoMedium24()
@@ -79,7 +83,7 @@ class DetailsView: UIView {
         button.titleLabel?.font = .robotoBold16()
         button.layer.cornerRadius = 10
 //        button.tintColor = .white
-        button.addTarget(self, action: #selector(nextSet), for: .touchUpInside)
+        button.addTarget(self, action: #selector(nextSetButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -98,6 +102,8 @@ class DetailsView: UIView {
 
     var setsStackView = UIStackView()
     var repsStackView = UIStackView()
+    
+    weak var cellNextSetDelegate: NextSetProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,8 +124,9 @@ class DetailsView: UIView {
         
     }
     
-    @objc private func nextSet() {
-        print(#function)
+    @objc private func nextSetButtonTapped() {
+        
+        cellNextSetDelegate?.nextSetTapped()
         
     }
     

@@ -28,10 +28,10 @@ class WorkoutTableViewCell: UITableViewCell {
     let startButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 10
-        button.setTitle("START", for: .normal)
+//        button.setTitle("START", for: .normal)
         button.titleLabel?.font = .robotoBold16()
-        button.tintColor = .specialDarkGreen
-        button.backgroundColor = .specialYellow
+//        button.tintColor = .specialDarkGreen
+//        button.backgroundColor = .specialYellow
         button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         button.addShadowOnView()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -135,6 +135,18 @@ class WorkoutTableViewCell: UITableViewCell {
         guard let imageData = model.workoutImage else { return }
         guard let image = UIImage(data: imageData) else { return }
         exerciseImageView.image = image
+        
+        if model.status {
+            startButton.setTitle("COMPLETE", for: .normal)
+            startButton.tintColor = .white
+            startButton.backgroundColor = .specialGreen
+            startButton.isEnabled = false
+        } else {
+            startButton.setTitle("START", for: .normal)
+            startButton.tintColor = .specialDarkGreen
+            startButton.backgroundColor = .specialYellow
+            startButton.isEnabled = true
+        }
     }
     
     private func setConstraints() {
