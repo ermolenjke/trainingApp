@@ -1,18 +1,14 @@
 //
-//  DetailsView.swift
+//  TimerDetailsView.swift
 //  traningApp
 //
-//  Created by Даниил Ермоленко on 03.05.2022.
+//  Created by Даниил Ермоленко on 12.05.2022.
 //
 
 import UIKit
 
-protocol NextSetProtocol: AnyObject {
-    func nextSetTapped()
-}
+class TimerDetailsView: UIView {
 
-class DetailsView: UIView {
-    
     let workoutNameLabel: UILabel = {
        let label = UILabel()
         label.text = "Biceps"
@@ -101,7 +97,7 @@ class DetailsView: UIView {
     
 
     var setsStackView = UIStackView()
-    var repsStackView = UIStackView()
+    var timeOfSetsStackView = UIStackView()
     
     weak var cellNextSetDelegate: NextSetProtocol?
     
@@ -126,7 +122,7 @@ class DetailsView: UIView {
     
     @objc private func nextSetButtonTapped() {
         
-        cellNextSetDelegate?.nextSetTapped()
+        print(#function)
         
     }
     
@@ -139,11 +135,11 @@ class DetailsView: UIView {
                                     spacing: 10)
         addSubview(setsStackView)
         
-        repsStackView = UIStackView(arrangedSubviews: [repsLabel,
+        timeOfSetsStackView = UIStackView(arrangedSubviews: [repsLabel,
                                                        numberOfRepsLabel],
                                     axis: .horizontal,
                                     spacing: 10)
-        addSubview(repsStackView)
+        addSubview(timeOfSetsStackView)
         addSubview(firstRectangleView)
         addSubview(secondRectangleView)
         addSubview(nextSetButton)
@@ -175,15 +171,15 @@ class DetailsView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            repsStackView.topAnchor.constraint(equalTo: firstRectangleView.bottomAnchor, constant: 25),
-            repsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            repsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            repsStackView.heightAnchor.constraint(equalToConstant: 28)
+            timeOfSetsStackView.topAnchor.constraint(equalTo: firstRectangleView.bottomAnchor, constant: 25),
+            timeOfSetsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            timeOfSetsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            timeOfSetsStackView.heightAnchor.constraint(equalToConstant: 28)
 
         ])
         
         NSLayoutConstraint.activate([
-            secondRectangleView.topAnchor.constraint(equalTo: repsStackView.bottomAnchor, constant: 3),
+            secondRectangleView.topAnchor.constraint(equalTo: timeOfSetsStackView.bottomAnchor, constant: 3),
             secondRectangleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             secondRectangleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             secondRectangleView.heightAnchor.constraint(equalToConstant: 1)
@@ -206,3 +202,6 @@ class DetailsView: UIView {
     }
     
 }
+
+
+

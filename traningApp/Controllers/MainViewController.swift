@@ -220,7 +220,7 @@ extension MainViewController: StartWorkoutProtocol {
     func startButtonTapped(model: WorkoutModel) {
         
         if model.workoutTimer == 0 {
-            let startWorkoutViewController = StartWorkoutViewController()
+            let startWorkoutViewController = RepsStartWorkoutViewController()
             startWorkoutViewController.modalPresentationStyle = .fullScreen
             startWorkoutViewController.workoutModel = model
             present(startWorkoutViewController, animated: true, completion: nil)
