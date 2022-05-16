@@ -45,6 +45,16 @@ class TimerStartViewController: UIViewController {
         return imageView
     }()
     
+    private let timerLabel: UILabel = {
+       let label = UILabel()
+        label.text = "01:30"
+        label.textAlignment = .center
+        label.textColor = .specialBlack
+        label.font = .robotoBold48()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let detailsLabel = UILabel(text: "Details")
     
 //    private let detailsView: UIView = {
@@ -98,6 +108,7 @@ class TimerStartViewController: UIViewController {
         scrollView.addSubview(closeButton)
         scrollView.addSubview(timerCircleImageView)
         scrollView.addSubview(detailsLabel)
+        scrollView.addSubview(timerLabel)
         scrollView.addSubview(detailsView)
         scrollView.addSubview(finishButton)
     }
@@ -131,6 +142,13 @@ class TimerStartViewController: UIViewController {
             timerCircleImageView.heightAnchor.constraint(equalToConstant: 242),
             timerCircleImageView.widthAnchor.constraint(equalToConstant: 242)
             
+        ])
+        
+        NSLayoutConstraint.activate([
+            timerLabel.leadingAnchor.constraint(equalTo: timerCircleImageView.leadingAnchor, constant: 50),
+            timerLabel.topAnchor.constraint(equalTo: timerCircleImageView.topAnchor, constant: 93),
+            timerLabel.trailingAnchor.constraint(equalTo: timerCircleImageView.trailingAnchor, constant: -50),
+            timerLabel.bottomAnchor.constraint(equalTo: timerCircleImageView.bottomAnchor,constant: -93)
         ])
         
         NSLayoutConstraint.activate([

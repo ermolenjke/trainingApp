@@ -11,7 +11,7 @@ class TimerDetailsView: UIView {
 
     let workoutNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Biceps"
+        label.text = "Squats"
         label.font = .robotoMedium24()
         label.textAlignment = .center
         label.textColor = .specialGray
@@ -37,18 +37,18 @@ class TimerDetailsView: UIView {
         return label
     }()
     
-    private let repsLabel: UILabel = {
+    private let timeOfSetLabel: UILabel = {
        let label = UILabel()
-        label.text = "Reps"
+        label.text = "Time of set"
         label.font = .robotoMedium18()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let numberOfRepsLabel: UILabel = {
+    let remainingTimeLabel: UILabel = {
        let label = UILabel()
-        label.text = "20"
+        label.text = "1 min 30 sec"
         label.font = .robotoMedium24()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -135,10 +135,10 @@ class TimerDetailsView: UIView {
                                     spacing: 10)
         addSubview(setsStackView)
         
-        timeOfSetsStackView = UIStackView(arrangedSubviews: [repsLabel,
-                                                       numberOfRepsLabel],
+        timeOfSetsStackView = UIStackView(arrangedSubviews: [timeOfSetLabel,
+                                                       remainingTimeLabel],
                                     axis: .horizontal,
-                                    spacing: 10)
+                                    spacing: 91)
         addSubview(timeOfSetsStackView)
         addSubview(firstRectangleView)
         addSubview(secondRectangleView)
