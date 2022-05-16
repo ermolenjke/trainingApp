@@ -174,7 +174,8 @@ class TimerDetailsView: UIView {
             timeOfSetsStackView.topAnchor.constraint(equalTo: firstRectangleView.bottomAnchor, constant: 25),
             timeOfSetsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             timeOfSetsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            timeOfSetsStackView.heightAnchor.constraint(equalToConstant: 28)
+            timeOfSetsStackView.heightAnchor.constraint(equalToConstant: 28),
+            timeOfSetsStackView.widthAnchor.
 
         ])
         
