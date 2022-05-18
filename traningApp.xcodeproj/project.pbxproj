@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880DE5DA283574FB00E56C92 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880DE5D9283574FB00E56C92 /* Date + Extensions.swift */; };
 		885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */; };
 		885B29A8282D970400D41CC9 /* TimerStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A7282D970400D41CC9 /* TimerStartViewController.swift */; };
 		885B29AA282D974F00D41CC9 /* TimerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A9282D974F00D41CC9 /* TimerDetailsView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880DE5D9283574FB00E56C92 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
 		885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
 		885B29A7282D970400D41CC9 /* TimerStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStartViewController.swift; sourceTree = "<group>"; };
 		885B29A9282D974F00D41CC9 /* TimerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetailsView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				889F4B022811DD9800220D42 /* UIKit */,
+				880DE5D9283574FB00E56C92 /* Date + Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				885B29AA282D974F00D41CC9 /* TimerDetailsView.swift in Sources */,
 				88681D64281BFAED00D83953 /* RepsOrTimerView.swift in Sources */,
 				88681D6B281C1CD500D83953 /* WorkoutModel.swift in Sources */,
+				880DE5DA283574FB00E56C92 /* Date + Extensions.swift in Sources */,
 				88681D5F281BFA0F00D83953 /* ProfileViewController.swift in Sources */,
 				88681D5B281AA08D00D83953 /* UILabel  + Extansions.swift in Sources */,
 				889F4B072811E09600220D42 /* UIColor + Extensions.swift in Sources */,
