@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepsStartWorkoutViewController: UIViewController {
+class StartWorkoutViewController: UIViewController {
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -71,6 +71,7 @@ class RepsStartWorkoutViewController: UIViewController {
     private let detailsView = RepsDetailsView()
     var workoutModel = WorkoutModel()
     private var numberOfSet = 1
+    let customAlert = CustomAlert()
     
     
     
@@ -86,6 +87,7 @@ class RepsStartWorkoutViewController: UIViewController {
     
     private func setDelegates() {
         detailsView.cellNextSetDelegate = self
+        
     }
     
     @objc private func closeVC() {
@@ -182,7 +184,14 @@ class RepsStartWorkoutViewController: UIViewController {
     
 }
 
-extension RepsStartWorkoutViewController: NextSetProtocol {
+extension StartWorkoutViewController: NextSetProtocol {
+    
+    func editingTapped() {
+        customAlert.alertCustom(viewController: self) { _, _ in
+            print("1")
+        }
+    }
+    
     
     func nextSetTapped() {
         

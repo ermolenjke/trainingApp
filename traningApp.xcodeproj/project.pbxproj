@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		880DE5DA283574FB00E56C92 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880DE5D9283574FB00E56C92 /* Date + Extensions.swift */; };
+		884199DA283BF21E008E42A5 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884199D9283BF21E008E42A5 /* CustomAlert.swift */; };
 		885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */; };
 		885B29A8282D970400D41CC9 /* TimerStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A7282D970400D41CC9 /* TimerStartViewController.swift */; };
 		885B29AA282D974F00D41CC9 /* TimerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B29A9282D974F00D41CC9 /* TimerDetailsView.swift */; };
@@ -23,7 +24,7 @@
 		88681D6B281C1CD500D83953 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88681D6A281C1CD500D83953 /* WorkoutModel.swift */; };
 		888D2C5F28201B4300ADA410 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D2C5E28201B4300ADA410 /* RealmManager.swift */; };
 		888D2C62282026F600ADA410 /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D2C61282026F600ADA410 /* SimpleAlert.swift */; };
-		888D2C642821785500ADA410 /* RepsStartWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D2C632821785500ADA410 /* RepsStartWorkoutViewController.swift */; };
+		888D2C642821785500ADA410 /* StartWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D2C632821785500ADA410 /* StartWorkoutViewController.swift */; };
 		888D2C6728218FF300ADA410 /* RepsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D2C6628218FF300ADA410 /* RepsDetailsView.swift */; };
 		889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4AE92810759000220D42 /* AppDelegate.swift */; };
 		889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4AEB2810759000220D42 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		880DE5D9283574FB00E56C92 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
+		884199D9283BF21E008E42A5 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkCancelAlert.swift; sourceTree = "<group>"; };
 		885B29A7282D970400D41CC9 /* TimerStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStartViewController.swift; sourceTree = "<group>"; };
 		885B29A9282D974F00D41CC9 /* TimerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetailsView.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		88681D6A281C1CD500D83953 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		888D2C5E28201B4300ADA410 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		888D2C61282026F600ADA410 /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
-		888D2C632821785500ADA410 /* RepsStartWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsStartWorkoutViewController.swift; sourceTree = "<group>"; };
+		888D2C632821785500ADA410 /* StartWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutViewController.swift; sourceTree = "<group>"; };
 		888D2C6628218FF300ADA410 /* RepsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsDetailsView.swift; sourceTree = "<group>"; };
 		889F4AE62810759000220D42 /* traningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889F4AE92810759000220D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				888D2C61282026F600ADA410 /* SimpleAlert.swift */,
 				885B29A5282C2D7700D41CC9 /* OkCancelAlert.swift */,
+				884199D9283BF21E008E42A5 /* CustomAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -181,7 +184,7 @@
 				88681D54281980F400D83953 /* NewWorkoutViewController.swift */,
 				88681D5C281BF9E800D83953 /* StatisticViewController.swift */,
 				88681D5E281BFA0F00D83953 /* ProfileViewController.swift */,
-				888D2C632821785500ADA410 /* RepsStartWorkoutViewController.swift */,
+				888D2C632821785500ADA410 /* StartWorkoutViewController.swift */,
 				885B29A7282D970400D41CC9 /* TimerStartViewController.swift */,
 			);
 			path = Controllers;
@@ -357,13 +360,14 @@
 				889F4B182816C68500220D42 /* CalendarCollectionViewCell.swift in Sources */,
 				88681D55281980F400D83953 /* NewWorkoutViewController.swift in Sources */,
 				888D2C6728218FF300ADA410 /* RepsDetailsView.swift in Sources */,
-				888D2C642821785500ADA410 /* RepsStartWorkoutViewController.swift in Sources */,
+				888D2C642821785500ADA410 /* StartWorkoutViewController.swift in Sources */,
 				88681D62281BFAD200D83953 /* DateAndRepeatView.swift in Sources */,
 				888D2C5F28201B4300ADA410 /* RealmManager.swift in Sources */,
 				888D2C62282026F600ADA410 /* SimpleAlert.swift in Sources */,
 				889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */,
 				885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */,
 				889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */,
+				884199DA283BF21E008E42A5 /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
