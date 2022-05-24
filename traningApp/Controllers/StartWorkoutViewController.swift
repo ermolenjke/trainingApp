@@ -68,6 +68,8 @@ class StartWorkoutViewController: UIViewController {
         return button
     }()
     
+    private let repsDetailsView = RepsDetailsView()
+    
     private let detailsView = RepsDetailsView()
     var workoutModel = WorkoutModel()
     private var numberOfSet = 1
@@ -97,7 +99,7 @@ class StartWorkoutViewController: UIViewController {
     @objc private func finishButtonTapped() {
         if numberOfSet == workoutModel.workoutSets {
             dismiss(animated: true)
-            RealmManager.shared.updateWorkoutModel(model: workoutModel, bool: true)
+            RealmManager.shared.updateStatusWorkoutModel(model: workoutModel, bool: true)
         } else {
             alertOkCancel(title: "Warning", message: "You haven't finished your workout") {
                 self.dismiss(animated: true)
@@ -187,8 +189,12 @@ class StartWorkoutViewController: UIViewController {
 extension StartWorkoutViewController: NextSetProtocol {
     
     func editingTapped() {
-        customAlert.alertCustom(viewController: self) { _, _ in
-            print("1")
+        customAlert.alertCustom(viewController: self) { [self] sets, reps in
+            repsDetailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(sets)"
+            repsDetailsView.numberOfRepsLabel.text = reps
+            guard let numberOfSets = Int(sets) else { return }
+            guard let numberOfReps = Int(reps) else { return }
+            RealmManager.shared.updateSetsRepsWorkoutModel(model: workoutModel, sets: numberOfSets, reps: numberOfReps)
         }
     }
     

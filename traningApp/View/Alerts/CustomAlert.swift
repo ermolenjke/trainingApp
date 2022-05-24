@@ -24,6 +24,9 @@ private let alertView: UIView = {
 }()
 
     private var mainView: UIView?
+    
+    private var buttonAction: ( (String, String) -> Void)?
+    
     private let setsTextField = UITextField()
     private let repsTextField = UITextField()
     
@@ -55,7 +58,7 @@ private let alertView: UIView = {
         setsLabel.frame = CGRect(x: 30, y: editingLabel.frame.maxY + 10, width: alertView.frame.width - 60, height: 20)
         alertView.addSubview(setsLabel)
         
-        let setsTextField = UITextField(frame: CGRect(x: 20, y: setsLabel.frame.maxY, width: alertView.frame.width - 40 , height: 30))
+        setsTextField.frame = CGRect(x: 20, y: setsLabel.frame.maxY, width: alertView.frame.width - 40 , height: 30)
         setsTextField.backgroundColor = .specialBrown
         setsTextField.borderStyle = .none
         setsTextField.layer.cornerRadius = 10
@@ -74,7 +77,7 @@ private let alertView: UIView = {
         repsLabel.frame = CGRect(x: 30, y: setsTextField.frame.maxY + 3, width: alertView.frame.width - 60, height: 20)
         alertView.addSubview(repsLabel)
         
-        let repsTextField = UITextField(frame: CGRect(x: 20, y: repsLabel.frame.maxY, width: alertView.frame.width - 40 , height: 30))
+        repsTextField.frame = CGRect(x: 20, y: repsLabel.frame.maxY, width: alertView.frame.width - 40 , height: 30)
         repsTextField.backgroundColor = .specialBrown
         repsTextField.borderStyle = .none
         repsTextField.layer.cornerRadius = 10
@@ -96,6 +99,7 @@ private let alertView: UIView = {
         okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         alertView.addSubview(okButton)
         
+        buttonAction = completion
         
      
         UIView.animate(withDuration: 0.3) {
@@ -110,8 +114,12 @@ private let alertView: UIView = {
     }
     
     @objc private func dismissAlert() {
+        guard let setsNumber = setsTextField.text else { return }
+        guard let repsNumber = repsTextField.text else { return }
+        buttonAction?(setsNumber,repsNumber)
         
         guard let targetView = mainView else { return }
+        
         
         
         UIView.animate(withDuration: 0.3) {
