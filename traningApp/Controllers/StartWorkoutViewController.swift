@@ -68,7 +68,6 @@ class StartWorkoutViewController: UIViewController {
         return button
     }()
     
-    private let repsDetailsView = RepsDetailsView()
     
     private let detailsView = RepsDetailsView()
     var workoutModel = WorkoutModel()
@@ -190,8 +189,8 @@ extension StartWorkoutViewController: NextSetProtocol {
     
     func editingTapped() {
         customAlert.alertCustom(viewController: self) { [self] sets, reps in
-            repsDetailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(sets)"
-            repsDetailsView.numberOfRepsLabel.text = reps
+            detailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(sets)"
+            detailsView.numberOfRepsLabel.text = reps
             guard let numberOfSets = Int(sets) else { return }
             guard let numberOfReps = Int(reps) else { return }
             RealmManager.shared.updateSetsRepsWorkoutModel(model: workoutModel, sets: numberOfSets, reps: numberOfReps)
