@@ -22,11 +22,11 @@ class StatisticTableViewCell: UITableViewCell {
     private let nowLabel = UILabel(text: "Now: 20")
     
     var labelStackView = UIStackView()
-    var statisticTableViewCell = StatisticTableViewCell()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        statisticTableViewCell.backgroundColor = .specialBackground
+
         setupViews()
         setConstraints()
     }
