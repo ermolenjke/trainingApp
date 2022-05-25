@@ -41,6 +41,7 @@
 		889F4B182816C68500220D42 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4B172816C68500220D42 /* CalendarCollectionViewCell.swift */; };
 		889F4B1B2816D67B00220D42 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4B1A2816D67B00220D42 /* WeatherView.swift */; };
 		889F4B1D281722CA00220D42 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889F4B1C281722CA00220D42 /* WorkoutTableViewCell.swift */; };
+		88C386C7283EB0EB00802937 /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C386C6283EB0EB00802937 /* StatisticTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		889F4B172816C68500220D42 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		889F4B1A2816D67B00220D42 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		889F4B1C281722CA00220D42 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		88C386C6283EB0EB00802937 /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		889F4B002811DD1A00220D42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88C386C0283EAC9D00802937 /* StatisticVC */,
 				888D2C6528218FAF00ADA410 /* StartWorkoutVC */,
 				888D2C60282026C800ADA410 /* Alerts */,
 				88681D60281BFA2700D83953 /* NewWorkoutVC */,
@@ -257,6 +260,22 @@
 			children = (
 				889F4B172816C68500220D42 /* CalendarCollectionViewCell.swift */,
 				889F4B1C281722CA00220D42 /* WorkoutTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		88C386C0283EAC9D00802937 /* StatisticVC */ = {
+			isa = PBXGroup;
+			children = (
+				88C386C1283EACAB00802937 /* Cells */,
+			);
+			path = StatisticVC;
+			sourceTree = "<group>";
+		};
+		88C386C1283EACAB00802937 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				88C386C6283EB0EB00802937 /* StatisticTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -364,6 +383,7 @@
 				88681D62281BFAD200D83953 /* DateAndRepeatView.swift in Sources */,
 				888D2C5F28201B4300ADA410 /* RealmManager.swift in Sources */,
 				888D2C62282026F600ADA410 /* SimpleAlert.swift in Sources */,
+				88C386C7283EB0EB00802937 /* StatisticTableViewCell.swift in Sources */,
 				889F4AEA2810759000220D42 /* AppDelegate.swift in Sources */,
 				885B29A6282C2D7700D41CC9 /* OkCancelAlert.swift in Sources */,
 				889F4AEC2810759000220D42 /* SceneDelegate.swift in Sources */,
