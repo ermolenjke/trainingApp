@@ -95,7 +95,7 @@ extension StatisticViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idStatisticTableViewCell, for: indexPath) as! StatisticTableViewCell
-        cell.backgroundColor = .specialBackground
+        cell.backgroundColor = .specialBackground 
         return cell
     }
     

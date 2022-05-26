@@ -38,7 +38,7 @@ class StatisticTableViewCell: UITableViewCell {
     private func setupViews() {
         addSubview(exerciseLabel)
         labelStackView = UIStackView(arrangedSubviews: [beforeLabel, nowLabel], axis: .horizontal, spacing: 10)
-    
+        labelStackView.distribution = .equalSpacing
         addSubview(labelStackView)
     }
     
@@ -54,7 +54,8 @@ class StatisticTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             labelStackView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor, constant: 1),
             labelStackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
-            labelStackView.widthAnchor.constraint(equalToConstant: 170),
+            labelStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            labelStackView.widthAnchor.constraint(equalToConstant: 170),
             labelStackView.heightAnchor.constraint(equalToConstant: 21)
         ])
         
