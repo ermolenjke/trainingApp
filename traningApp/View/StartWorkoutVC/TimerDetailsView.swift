@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol NextSetTimerProtocol: AnyObject {
+    func nextSetTimerTapped()
+    func editingTimerTapped()
+}
+
 class TimerDetailsView: UIView {
 
     let workoutNameLabel: UILabel = {
@@ -37,7 +42,7 @@ class TimerDetailsView: UIView {
         return label
     }()
     
-    private let timeOfSetLabel: UILabel = {
+     let timeOfSetLabel: UILabel = {
        let label = UILabel()
         label.text = "Time of set"
         label.font = .robotoMedium18()
@@ -99,7 +104,7 @@ class TimerDetailsView: UIView {
     var setsStackView = UIStackView()
     var timeOfSetsStackView = UIStackView()
     
-    weak var cellNextSetDelegate: NextSetProtocol?
+    weak var cellNextSetDelegate: NextSetTimerProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

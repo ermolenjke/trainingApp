@@ -189,7 +189,7 @@ extension RepsStartWorkoutViewController: NextSetProtocol {
     
     func editingTapped() {
         
-        customAlert.alertCustom(viewController: self) { [self] sets, reps in
+        customAlert.alertCustom(viewController: self, repsOrTimer: "Reps") { [self] sets, reps in
             if sets != "" && reps != "" {
             detailsView.numberOfSetsLabel.text = "\(numberOfSet)/\(sets)"
             detailsView.numberOfRepsLabel.text = reps

@@ -22,6 +22,7 @@ class CustomAlert {
         view.layer.cornerRadius = 20
         return view
     }()
+    private let scrollView = UIScrollView()
     
     private var mainView: UIView?
     private let setsTextField = UITextField()
@@ -29,19 +30,24 @@ class CustomAlert {
     
     var buttonAction: ( (String, String) -> Void)?
     
-    func alertCustom(viewController: UIViewController, completion: @escaping (String, String) -> Void) {
+    func alertCustom(viewController: UIViewController, repsOrTimer: String,  completion: @escaping (String, String) -> Void) {
         
+        registerForKeyboardNotification()
+
         guard let parentView = viewController.view else { return }
         mainView = parentView
         
+        scrollView.frame = parentView.frame
+        parentView.addSubview(scrollView)
+        
         backgroundView.frame = parentView.frame
-        parentView.addSubview(backgroundView)
+        scrollView.addSubview(backgroundView)
         
         alertView.frame = CGRect(x: 40,
                                  y: -420,
                                  width: parentView.frame.width - 80,
                                  height: 420)
-        parentView.addSubview(alertView)
+        scrollView.addSubview(alertView)
         
         let sportsmanImageView = UIImageView(frame: CGRect(x: (alertView.frame.width - alertView.frame.height * 0.4) / 2,
                                                            y: 30,
@@ -84,7 +90,7 @@ class CustomAlert {
         setsTextField.keyboardType = .numberPad
         alertView.addSubview(setsTextField)
         
-        let repsLabel = UILabel(text: "Reps")
+        let repsLabel = UILabel(text:"\(repsOrTimer)")
         repsLabel.translatesAutoresizingMaskIntoConstraints = true
         repsLabel.frame = CGRect(x: 30,
                                  y: setsTextField.frame.maxY + 3,
@@ -146,13 +152,38 @@ class CustomAlert {
             if done {
                 UIView.animate(withDuration: 0.3) {
                     self.backgroundView.alpha = 0
-                } completion: { done in
+                } completion: { [weak self] done in
+                    guard let self = self else { return }
                     if done {
                         self.alertView.removeFromSuperview()
                         self.backgroundView.removeFromSuperview()
+                        self.scrollView.removeFromSuperview()
+                        self.removeForKeyboardNotification()
+                        self.setsTextField.text = ""
+                        self.repsTextField.text = ""
                     }
                 }
             }
         }
     }
+    
+    private func registerForKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeForKeyboardNotification() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func kbWillShow() {
+        scrollView.contentOffset = CGPoint(x: 0, y: 100)
+    }
+    
+    @objc private func kbWillHide() {
+        scrollView.contentOffset = CGPoint.zero
+    }
+    
 }
