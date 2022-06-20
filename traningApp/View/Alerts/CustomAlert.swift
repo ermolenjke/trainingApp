@@ -47,7 +47,7 @@ class CustomAlert {
                                                            y: 30,
                                                            width: alertView.frame.height * 0.4,
                                                            height: alertView.frame.height * 0.4))
-        sportsmanImageView.image = UIImage(named: "sportsmanAlert")
+        sportsmanImageView.image = UIImage(named: "sportsmanImage")
         sportsmanImageView.contentMode = .scaleAspectFit
         alertView.addSubview(sportsmanImageView)
         

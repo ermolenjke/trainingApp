@@ -71,7 +71,7 @@ class TimerDetailsView: UIView {
         return view
     }()
     
-    private let nextSetButton: UIButton = {
+     let nextSetButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .specialYellow
         button.tintColor = .specialGray
@@ -84,7 +84,7 @@ class TimerDetailsView: UIView {
         return button
     }()
     
-    private let editWorkoutButton: UIButton = {
+     let editWorkoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "editingImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle("Editing", for: .normal)
@@ -174,7 +174,7 @@ class TimerDetailsView: UIView {
             timeOfSetsStackView.topAnchor.constraint(equalTo: firstRectangleView.bottomAnchor, constant: 25),
             timeOfSetsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             timeOfSetsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            timeOfSetsStackView.heightAnchor.constraint(equalToConstant: 28)
+            timeOfSetsStackView.heightAnchor.constraint(equalToConstant: 28)    
 
         ])
         
