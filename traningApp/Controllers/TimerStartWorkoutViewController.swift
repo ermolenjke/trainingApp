@@ -83,7 +83,10 @@ class TimerStartWorkoutViewController: UIViewController {
     var timer = Timer()
     var durationTimer = 10
     
-    
+    override func viewDidLayoutSubviews() {
+        closeButton.layer.cornerRadius = closeButton.frame.height / 2
+        animationCircular()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +96,7 @@ class TimerStartWorkoutViewController: UIViewController {
         setConstraints()
         setWorkoutParameters()
         setDelegates()
+        animationCircular()
         addTaps()
     }
     
@@ -191,7 +195,7 @@ extension TimerStartWorkoutViewController {
         let endAngle = (-CGFloat.pi / 2)
         let startAngle = 2 * CGFloat.pi + endAngle
         
-        let circularPath = UIBezierPath(arcCenter: center, radius: 135, startAngle: startAngle, endAngle: endAngle, clockwise: false)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 126, startAngle: startAngle, endAngle: endAngle, clockwise: false)
         
         shapeLayer.path = circularPath.cgPath
         shapeLayer.lineWidth = 21
@@ -224,10 +228,8 @@ extension TimerStartWorkoutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            startWorkoutLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            startWorkoutLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            startWorkoutLabel.heightAnchor.constraint(equalToConstant: 25),
-            startWorkoutLabel.widthAnchor.constraint(equalToConstant: 250)
+            startWorkoutLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            startWorkoutLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
